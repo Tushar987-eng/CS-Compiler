@@ -1,0 +1,39 @@
+D:\Github\Compiler\main\bin\Debug\netcoreapp3.1\mc.exe
+D:\Github\Compiler\main\bin\Debug\netcoreapp3.1\mc.deps.json
+D:\Github\Compiler\main\bin\Debug\netcoreapp3.1\mc.runtimeconfig.json
+D:\Github\Compiler\main\bin\Debug\netcoreapp3.1\mc.runtimeconfig.dev.json
+D:\Github\Compiler\main\bin\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\main\bin\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.csprojAssemblyReference.cache
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.AssemblyInfoInputs.cache
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.AssemblyInfo.cs
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.csproj.CoreCompileInputs.cache
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\main\obj\Debug\netcoreapp3.1\mc.genruntimeconfig.cache
+D:\Github\Compiler\mc\bin\Debug\netcoreapp3.1\mc.exe
+D:\Github\Compiler\mc\bin\Debug\netcoreapp3.1\mc.deps.json
+D:\Github\Compiler\mc\bin\Debug\netcoreapp3.1\mc.runtimeconfig.json
+D:\Github\Compiler\mc\bin\Debug\netcoreapp3.1\mc.runtimeconfig.dev.json
+D:\Github\Compiler\mc\bin\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\mc\bin\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.csprojAssemblyReference.cache
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.AssemblyInfoInputs.cache
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.AssemblyInfo.cs
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.csproj.CoreCompileInputs.cache
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\mc\obj\Debug\netcoreapp3.1\mc.genruntimeconfig.cache
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\mc.exe
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\mc.deps.json
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\mc.runtimeconfig.json
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\mc.runtimeconfig.dev.json
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\mc.dll
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\mc.pdb
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.csprojAssemblyReference.cache
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.AssemblyInfoInputs.cache
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.AssemblyInfo.cs
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.csproj.CoreCompileInputs.cache
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.dll
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.pdb
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.genruntimeconfig.cache

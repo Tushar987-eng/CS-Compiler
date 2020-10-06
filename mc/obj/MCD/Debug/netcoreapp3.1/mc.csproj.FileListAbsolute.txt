@@ -1,0 +1,39 @@
+D:\Github\OS Project\mc\bin\MCD\Debug\netcoreapp3.1\mc.exe
+D:\Github\OS Project\mc\bin\MCD\Debug\netcoreapp3.1\mc.deps.json
+D:\Github\OS Project\mc\bin\MCD\Debug\netcoreapp3.1\mc.runtimeconfig.json
+D:\Github\OS Project\mc\bin\MCD\Debug\netcoreapp3.1\mc.runtimeconfig.dev.json
+D:\Github\OS Project\mc\bin\MCD\Debug\netcoreapp3.1\mc.dll
+D:\Github\OS Project\mc\bin\MCD\Debug\netcoreapp3.1\mc.pdb
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.csprojAssemblyReference.cache
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.AssemblyInfoInputs.cache
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.AssemblyInfo.cs
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.csproj.CoreCompileInputs.cache
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.dll
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.pdb
+D:\Github\OS Project\mc\obj\MCD\Debug\netcoreapp3.1\mc.genruntimeconfig.cache
+D:\Github\Compiler\mc\bin\MCD\Debug\netcoreapp3.1\mc.exe
+D:\Github\Compiler\mc\bin\MCD\Debug\netcoreapp3.1\mc.deps.json
+D:\Github\Compiler\mc\bin\MCD\Debug\netcoreapp3.1\mc.runtimeconfig.json
+D:\Github\Compiler\mc\bin\MCD\Debug\netcoreapp3.1\mc.runtimeconfig.dev.json
+D:\Github\Compiler\mc\bin\MCD\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\mc\bin\MCD\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.csprojAssemblyReference.cache
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.AssemblyInfoInputs.cache
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.AssemblyInfo.cs
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.csproj.CoreCompileInputs.cache
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\mc\obj\MCD\Debug\netcoreapp3.1\mc.genruntimeconfig.cache
+D:\Github\Compiler\main\bin\MCD\Debug\netcoreapp3.1\mc.exe
+D:\Github\Compiler\main\bin\MCD\Debug\netcoreapp3.1\mc.deps.json
+D:\Github\Compiler\main\bin\MCD\Debug\netcoreapp3.1\mc.runtimeconfig.json
+D:\Github\Compiler\main\bin\MCD\Debug\netcoreapp3.1\mc.runtimeconfig.dev.json
+D:\Github\Compiler\main\bin\MCD\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\main\bin\MCD\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.csprojAssemblyReference.cache
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.AssemblyInfoInputs.cache
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.AssemblyInfo.cs
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.csproj.CoreCompileInputs.cache
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.dll
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.pdb
+D:\Github\Compiler\main\obj\MCD\Debug\netcoreapp3.1\mc.genruntimeconfig.cache
