@@ -4,6 +4,8 @@ A simple compiler using C#.
 
 ## How to run
 
+Ensure that you have .NET core SDK installed.
+
 Clone the repository in your local directory.\
 
 if using powershell, then inside the 'main' directory, run:
