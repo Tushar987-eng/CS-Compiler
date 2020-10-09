@@ -7,7 +7,7 @@ namespace Compiler.CodeAnalysis.Syntax
     {
         private readonly SyntaxToken[] _tokens;
 
-        private List<string> _diagnostics = new List<string>();
+        private DiagnosticBag _diagnostics = new DiagnosticBag();
         private int _position;
 
         public Parser(string text)
@@ -31,7 +31,7 @@ namespace Compiler.CodeAnalysis.Syntax
             _diagnostics.AddRange(lexer.Diagnostics);
         }
 
-        public IEnumerable<string> Diagnostics => _diagnostics;
+        public DiagnosticBag Diagnostics => _diagnostics;
 
         private SyntaxToken Peek(int offset)
         {
@@ -49,7 +49,7 @@ namespace Compiler.CodeAnalysis.Syntax
             if(Current.Kind == kind)
                 return NextToken();
             
-            _diagnostics.Add($"ERROR: Unexpected token <{Current.Kind}>, expected <{kind}>");
+            _diagnostics.ReportUnexpectedToken(Current.Span, Current.Kind,kind);
             return new SyntaxToken(kind,Current.Position,null, null);
         }
         private SyntaxToken NextToken()
@@ -65,16 +65,33 @@ namespace Compiler.CodeAnalysis.Syntax
             var endOfFileToken = MatchToken(SyntaxKind.EndOffileToken);
             return new SyntaxTree(_diagnostics, expression, endOfFileToken);
         }
+        
+        private ExpressionSyntax ParseExpression()
+        {
+            return ParseAssignmentExpression();
+        }
+        
+        private ExpressionSyntax ParseAssignmentExpression()
+        {
+            if(Peek(0).Kind == SyntaxKind.IdentifierToken && Peek(1).Kind == SyntaxKind.EqualsToken)
+            {
+                var identifierToken = NextToken();
+                var operatorToken = NextToken();
+                var right = ParseAssignmentExpression();
+                return new AssignmentExpressionSyntax(identifierToken, operatorToken, right);
+            }
+            
+            return ParseBinaryExpression();
+        }
  
-
-        private ExpressionSyntax ParseExpression(int parentPrecedence = 0)
+        private ExpressionSyntax ParseBinaryExpression(int parentPrecedence = 0)
         {
             ExpressionSyntax left;
             var unaryOperatorPrecedence = Current.Kind.GetUnaryOperatorPrecedence();
             if((unaryOperatorPrecedence != 0 )&& (unaryOperatorPrecedence >= parentPrecedence))
             {
                 var operatorToken = NextToken();
-                var operand = ParseExpression(unaryOperatorPrecedence);
+                var operand = ParseBinaryExpression(unaryOperatorPrecedence);
                 left  = new UnaryExpressionSyntax(operatorToken, operand);
             }
             else 
@@ -89,7 +106,7 @@ namespace Compiler.CodeAnalysis.Syntax
                     break;
 
                 var operatorToken = NextToken();
-                var right = ParseExpression(precedence);
+                var right = ParseBinaryExpression(precedence);
                 left = new BinaryExpressionSyntax(left, operatorToken, right);
             }
 
@@ -108,12 +125,17 @@ namespace Compiler.CodeAnalysis.Syntax
                     return new ParenthesizedExpressionSyntax(left, expression, right);
                 }
 
-                case SyntaxKind.TrueKeyword:
                 case SyntaxKind.FalseKeyword:
+                case SyntaxKind.TrueKeyword:
                 {
                     var keywordToken = NextToken();
                     var value = keywordToken.Kind == SyntaxKind.TrueKeyword;
                     return new LiteralExpressionSyntax(Current, value);
+                }
+                case SyntaxKind.IdentifierToken:
+                {
+                    var identifierToken = NextToken();
+                    return new NameExpressionSyntax(identifierToken);
                 }
                 default: 
                 {

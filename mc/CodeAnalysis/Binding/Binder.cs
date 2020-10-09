@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Compiler.CodeAnalysis.Syntax;
 
 namespace Compiler.CodeAnalysis.Binding
@@ -8,6 +9,8 @@ namespace Compiler.CodeAnalysis.Binding
     {
         UnaryExpression,
         LiteralExpression,
+        VariableExpression,
+        AssignmentExpression,
         BinaryExpression
     }
     internal abstract class BoundNode
@@ -162,7 +165,33 @@ namespace Compiler.CodeAnalysis.Binding
         }
     }
 
+    internal sealed class BoundAssignmentExpression : BoundExpression
+    {
+        public BoundAssignmentExpression(VariableSymbol variable , BoundExpression expression)
+        {
+            Variable = variable;
+            Expression = expression;
+        }
+        
+        
+        public  override BoundNodeKind Kind => BoundNodeKind.AssignmentExpression;
+        public override  Type Type => Expression.Type;
+        public VariableSymbol Variable { get;}
+        public BoundExpression Expression { get; }
+    }
 
+    internal sealed class BoundVariableExpression: BoundExpression
+    {
+        public BoundVariableExpression(VariableSymbol variable)
+        {
+            Variable = variable;
+        }
+        
+        public override BoundNodeKind Kind => BoundNodeKind.VariableExpression;
+        public  override Type Type => Variable.Type;
+        public VariableSymbol Variable { get; }
+        
+    }
 
     internal sealed class BoundBinaryExpression : BoundExpression
     {
@@ -184,32 +213,75 @@ namespace Compiler.CodeAnalysis.Binding
     internal sealed class Binder 
     {
 
-        private readonly List<string> _diagnostics = new List<string>();
+        private readonly Dictionary<VariableSymbol, object> _variables;
+        private readonly DiagnosticBag _diagnostics = new DiagnosticBag();
+        
+        public Binder( Dictionary<VariableSymbol , object> variables)
+        {
+            _variables = variables;
+        }
 
-        public IEnumerable<string> Diagnostics => _diagnostics;
+        public DiagnosticBag Diagnostics => _diagnostics;
 
         public BoundExpression BindExpression(ExpressionSyntax syntax)
         {
             switch(syntax.Kind)
             {
+                case SyntaxKind.ParenthesizedExpression:
+                    return BindParenthesizedExpression((ParenthesizedExpressionSyntax)syntax);
                 case SyntaxKind.LiteralExpression:
                     return BindLiteralExpression((LiteralExpressionSyntax)syntax);
+                case SyntaxKind.NameExpression:
+                    return BindNameExpression((NameExpressionSyntax)syntax);
+                case SyntaxKind.AssignmentExpression:
+                    return BindAssignmentExpression((AssignmentExpressionSyntax)syntax);
                 case SyntaxKind.UnaryExpression:
                     return BindUnaryExpression((UnaryExpressionSyntax)syntax);
                 case SyntaxKind.BinaryExpression:
                     return BindBinaryExpression((BinaryExpressionSyntax)syntax);
-                case SyntaxKind.ParenthesizedExpression:
-                    return BindExpression(((ParenthesizedExpressionSyntax)syntax).Expression);
                 default: 
                     throw new Exception($"Unexpected syntax {syntax.Kind}");
             }
         }
-
+        
+        private BoundExpression BindParenthesizedExpression(ParenthesizedExpressionSyntax syntax)
+        {
+            return  BindExpression(syntax.Expression);
+        }
+        
         private BoundExpression BindLiteralExpression(LiteralExpressionSyntax syntax)
         {
             var value = syntax.Value ?? 0;
             return new BoundLiteralExpression(value);
         }
+        
+        private BoundExpression BindNameExpression(NameExpressionSyntax syntax)
+        {
+            var name = syntax.IdentifierToken.Text;
+            var variable = _variables.Keys.FirstOrDefault(v => v.Name == name);
+            if(variable == null)
+            {
+                _diagnostics.ReportUndefinedName(syntax.IdentifierToken.Span,name);
+                return new BoundLiteralExpression(0);
+            }
+            
+            return new BoundVariableExpression(variable);
+        }
+        
+        private BoundExpression BindAssignmentExpression(AssignmentExpressionSyntax syntax)
+        {
+            var name = syntax.IdentifierToken.Text;
+            var boundExpression = BindExpression(syntax.Expression);
+            
+            var existingVariable = _variables.Keys.FirstOrDefault(v => v.Name == name);
+            if(existingVariable != null)
+                _variables.Remove(existingVariable);
+                
+            var variable = new VariableSymbol(name , boundExpression.Type);
+            _variables[variable] = null;
+            return new BoundAssignmentExpression (variable,boundExpression);
+        }
+
 
         private BoundExpression BindUnaryExpression(UnaryExpressionSyntax syntax)
         {
@@ -217,7 +289,7 @@ namespace Compiler.CodeAnalysis.Binding
             var boundOperator = BoundUnaryOperator.Bind(syntax.OperatorToken.Kind, boundOperand.Type);
             if(boundOperator == null)
             {
-                _diagnostics.Add($"Unary operator '{syntax.OperatorToken.Text}' is not defined for type {boundOperand.Type}.");
+                _diagnostics.ReportUndefinedUnaryOperator(syntax.OperatorToken.Span,syntax.OperatorToken.Text, boundOperand.Type);
                 return boundOperand;
             }
             return new BoundUnaryExpression(boundOperator, boundOperand);
@@ -231,14 +303,14 @@ namespace Compiler.CodeAnalysis.Binding
 
             if(boundOperator == null)
             {
-                _diagnostics.Add($"Binary operator '{syntax.OperatorToken.Text}' is not defined for type {boundLeft.Type} and {boundRight.Type}.");
+                _diagnostics.ReportUndefinedBinaryOperator(syntax.OperatorToken.Span,syntax.OperatorToken.Text,boundLeft.Type,boundRight.Type);
                 return boundLeft;
             }
 
             return new BoundBinaryExpression(boundLeft, boundOperator, boundRight);
         }
 
-        private BoundUnaryOperatorKind? BindUnaryOperatorKind(SyntaxKind kind, Type operandType)
+        private BoundUnaryOperatorKind ? BindUnaryOperatorKind(SyntaxKind kind, Type operandType)
         {
             if(operandType == typeof(int))
             {

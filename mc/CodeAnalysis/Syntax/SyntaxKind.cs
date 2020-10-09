@@ -15,12 +15,14 @@ namespace Compiler.CodeAnalysis.Syntax
         SlashToken,
         OpenParenthesisToken,
         CloseParenthesisToken,
-        IdetifierToken,
+        IdentifierToken,
 
 
         BinaryExpression,
         UnaryExpression,
+        NameExpression,
         LiteralExpression,
+        AssignmentExpression,
         ParenthesizedExpression,
 
 
@@ -32,6 +34,7 @@ namespace Compiler.CodeAnalysis.Syntax
         AmpersandAmpersandToken,
         PipePipeToken,
         EqualsEqualsToken,
+        EqualsToken,
         BangEqualsToken,
     }
 }
