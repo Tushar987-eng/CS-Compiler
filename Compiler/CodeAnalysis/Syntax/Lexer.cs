@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Compiler.CodeAnalysis.Syntax
 {
     internal sealed class Lexer {
@@ -20,7 +18,7 @@ namespace Compiler.CodeAnalysis.Syntax
         private char Peek(int offset)
         {
             var index = _position + offset;
-            if (_position >= _text.Length)
+            if (index >= _text.Length)
                 return '\0';
             return _text[index];
         }

@@ -37,3 +37,6 @@ F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.csproj.CoreCompileIn
 F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.dll
 F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.pdb
 F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.genruntimeconfig.cache
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\Compiler.dll
+F:\New folder (3)\C-_Compiler\mc\bin\Debug\netcoreapp3.1\Compiler.pdb
+F:\New folder (3)\C-_Compiler\mc\obj\Debug\netcoreapp3.1\mc.csproj.CopyComplete

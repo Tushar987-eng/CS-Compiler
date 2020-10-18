@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Compiler.CodeAnalysis;
 using Compiler.CodeAnalysis.Binding;
 using Compiler.CodeAnalysis.Syntax;
-using Compiler.CodeAnalysis;
-
-namespace Compiler 
+namespace Compiler
 {
     internal static class Program {
         private static void Main () {

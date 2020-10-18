@@ -1,0 +1,9 @@
+F:\New folder (3)\C-_Compiler\Compiler\bin\Debug\netstandard2.0\Compiler.deps.json
+F:\New folder (3)\C-_Compiler\Compiler\bin\Debug\netstandard2.0\Compiler.dll
+F:\New folder (3)\C-_Compiler\Compiler\bin\Debug\netstandard2.0\Compiler.pdb
+F:\New folder (3)\C-_Compiler\Compiler\obj\Debug\netstandard2.0\Compiler.csprojAssemblyReference.cache
+F:\New folder (3)\C-_Compiler\Compiler\obj\Debug\netstandard2.0\Compiler.AssemblyInfoInputs.cache
+F:\New folder (3)\C-_Compiler\Compiler\obj\Debug\netstandard2.0\Compiler.AssemblyInfo.cs
+F:\New folder (3)\C-_Compiler\Compiler\obj\Debug\netstandard2.0\Compiler.csproj.CoreCompileInputs.cache
+F:\New folder (3)\C-_Compiler\Compiler\obj\Debug\netstandard2.0\Compiler.dll
+F:\New folder (3)\C-_Compiler\Compiler\obj\Debug\netstandard2.0\Compiler.pdb
